@@ -68,14 +68,12 @@ FILE * openOutputFile() {
 int applyCommands(char buffer[MAXLINE+1],int n){
     while(1){
         mutex_lock(&commandsLock);
-            char *token;
-            char*name1;
-            char*name2;
+            char token;
+            char name1[MAXLINE];
+            char name2[MAXLINE];
             int i=0;
-            token=strtok(buffer," ");
-            name1=strtok(buffer," ");
-            name2=strtok(buffer," ");
-            switch (*token) {
+            sscanf(buffer, "%c %s %s", &token, name1, name2);
+            switch (token) {
                 case 'c':
                     mutex_unlock(&commandsLock);
                     i=create(fs,name1, cliente_uid, atoi(name2)/10, atoi(name2)%10);

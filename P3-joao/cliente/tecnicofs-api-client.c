@@ -82,7 +82,6 @@ int tfsCreate(char* filename, permission ownerPermissions, permission otherPermi
 	sprintf(p2, "%d", otherPermissions);
 	strcat(p1,p2);
     strcat(comando,p1);
-	
 	i=trata_comando(comando);
 	return i;
 }
@@ -112,7 +111,7 @@ int tfsRename(char *filenameOld, char *filenameNew){
 int tfsOpen(char *filename, permission mode){
 	char comando[MAX_INPUT];
 	int i;
-	char cmode[MAX_INPUT];
+	char cmode[2];
 	strcpy(comando, "o");
     strcat(comando, " ");
 	strcat(comando , filename);

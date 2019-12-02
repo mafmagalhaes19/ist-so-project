@@ -2,7 +2,7 @@
 # Makefile, versao 1
 # Sistemas Operativos, DEI/IST/ULisboa 2019-20
 PROGS = cli
-SOURCES = main.c fs.c sync.c constants.c 
+SOURCES = server.c fs.c sync.c 
 SOURCES+= lib/bst.c lib/inodes.c 
 OBJS_RWLOCK = $(SOURCES:%.c=%-rwlock.o)
 OBJS = $(OBJS_RWLOCK)
@@ -10,7 +10,7 @@ CC   = gcc
 LD   = gcc
 CFLAGS =-Wall -std=gnu99 -I../ -g
 LDFLAGS=-lm -pthread
-TARGETS =tecnicofs
+TARGETS =tecnicofs clients
 
 .PHONY: all clean
 
